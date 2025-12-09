@@ -47,15 +47,21 @@ texts = [
         "approx_date": -458
     },
     {
+        "title": "Symposium",
+        "description": "Plato's philosophical dialogue set at a drinking party where Socrates and other Athenian intellectuals deliver speeches in praise of Eros, the god of love. Each speaker offers a different perspective on love's nature, ascending from physical desire to philosophical contemplation. Socrates recounts the teachings of Diotima, a priestess who describes love as the desire for beauty and immortality, culminating in the vision of absolute Beauty itself. The dialogue explores the relationship between earthly and divine love, the nature of desire, and the role of beauty in philosophical ascent. It represents a masterpiece of Platonic philosophy, blending dramatic characterization with metaphysical speculation.",
+        "chronological_order": 8,
+        "approx_date": -385
+    },
+    {
         "title": "Aeneid",
         "description": "Virgil's epic poem narrating the journey of Aeneas, a Trojan hero, from the ruins of Troy to the founding of Rome. The work combines adventure, romance, and political ideology, linking Roman imperial destiny to mythical origins. Aeneas's journey includes a tragic love affair with Dido of Carthage, a descent to the underworld, and wars in Italy to establish a new homeland. The epic synthesizes Greek literary tradition with Roman values of duty, piety, and sacrifice, creating a national mythology that legitimizes Augustus's regime and celebrates Roman civilization.",
-        "chronological_order": 8,
+        "chronological_order": 9,
         "approx_date": -19
     },
     {
         "title": "Gospel of Mark",
         "description": "The earliest Christian Gospel, presenting a swift-paced narrative of Jesus's ministry, death, and resurrection. Mark portrays Jesus as the suffering Son of God who performs miracles, teaches in parables, and challenges religious authorities. The Gospel emphasizes discipleship, the messianic secret, and the paradox of a crucified messiah. Its urgent, dramatic style moves rapidly from Galilee to Jerusalem, culminating in the passion narrative. The work establishes the Gospel genre, combining biographical elements with theological proclamation, and shapes Christian understanding of Jesus's identity and mission.",
-        "chronological_order": 9,
+        "chronological_order": 10,
         "approx_date": 70
     }
 ]

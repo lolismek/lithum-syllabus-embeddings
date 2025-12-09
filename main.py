@@ -36,9 +36,10 @@ def parse_arguments():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python main.py                           # Find globally optimal order
-  python main.py --start "Iliad"           # Start with Iliad
-  python main.py --start "Genesis"         # Start with Genesis
+  python main.py                           # Find globally optimal order using TSP
+  python main.py --algorithm greedy        # Use greedy nearest neighbor algorithm
+  python main.py --start "Iliad"           # Start with Iliad (TSP)
+  python main.py --start "Genesis" --algorithm greedy  # Start with Genesis (greedy)
   python main.py --list                    # List all available texts
         """
     )
@@ -53,6 +54,14 @@ Examples:
         '--list',
         action='store_true',
         help='List all available texts and exit'
+    )
+
+    parser.add_argument(
+        '--algorithm',
+        type=str,
+        choices=['tsp', 'greedy'],
+        default='tsp',
+        help='Algorithm to use for pathfinding (default: tsp). "tsp" uses Held-Karp for exact optimal solution, "greedy" uses nearest neighbor heuristic'
     )
 
     return parser.parse_args()
@@ -110,6 +119,8 @@ def main():
     start_time = time.time()
 
     print_header("EMBEDDING-BASED SYLLABUS REORDERING")
+    algorithm_name = "TSP (Held-Karp)" if args.algorithm == 'tsp' else "Greedy Nearest Neighbor"
+    print(f"Algorithm: {algorithm_name}")
     if start_idx is not None:
         print(f"Optimizing reading order starting with: {texts[start_idx]['title']}\n")
     else:
@@ -162,9 +173,16 @@ def main():
 
     print(f"Time: {time.time() - phase_start:.3f}s\n")
 
-    # Use Held-Karp (exact) result as the optimal path
-    optimal_path = results['held_karp']['path']
-    optimal_distance = results['held_karp']['distance']
+    # Use selected algorithm as the optimal path
+    if args.algorithm == 'tsp':
+        optimal_path = results['held_karp']['path']
+        optimal_distance = results['held_karp']['distance']
+        print(f"Using TSP (Held-Karp) result as optimal path")
+    else:
+        optimal_path = results['greedy']['path']
+        optimal_distance = results['greedy']['distance']
+        print(f"Using Greedy Nearest Neighbor result as optimal path")
+    print()
 
     # Phase 5: Generate visualizations
     print_header("Phase 5: Generating Visualizations", '-')
